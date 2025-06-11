@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="Theme.EWaste" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#1e4e46</item>
+        <item name="colorPrimaryDark">#0d2e28</item>
+        <item name="colorAccent">#3e776d</item>
 
-    <style name="Theme.MyApplication" parent="android:Theme.Material.Light.NoActionBar" />
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">#1e4e46</item>
+
+        <!-- Customize your theme here. -->
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
 </resources>
