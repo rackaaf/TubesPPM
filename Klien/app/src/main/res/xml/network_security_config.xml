@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- Alamat IP khusus untuk emulator -->
+        <domain includeSubdomains="true">192.168.100.159</domain>
+
+        <!-- IP lokal komputer Anda, jika diperlukan -->
+        <domain includeSubdomains="true">192.168.172.186</domain>
+
+        <!-- Backup domains jika diperlukan -->
+        <domain includeSubdomains="true">localhost</domain>
+    </domain-config>
+</network-security-config>
+
+
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<network-security-config>-->
+<!--    <domain-config cleartextTrafficPermitted="true">-->
+<!--        &lt;!&ndash; IP komputer yang benar &ndash;&gt;-->
+<!--        <domain includeSubdomains="true">192.168.172.186</domain>-->
+
+<!--        &lt;!&ndash; Backup domains &ndash;&gt;-->
+<!--        <domain includeSubdomains="true">localhost</domain>-->
+<!--        <domain includeSubdomains="true">10.0.2.2</domain>-->
+<!--        <domain includeSubdomains="true">192.168.214.1</domain>-->
+<!--        <domain includeSubdomains="true">192.168.214.100</domain>-->
+<!--    </domain-config>-->
+<!--</network-security-config>-->
