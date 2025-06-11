@@ -21,6 +21,7 @@ import androidx.navigation.NavController
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.ewaste.ui.theme.PrimaryGreen
 import androidx.compose.foundation.shape.CircleShape
+import com.example.ewaste.viewmodel.AuthViewModel
 
 @Composable
 fun LoginScreen(

@@ -28,6 +28,7 @@ import coil.request.ImageRequest
 import com.example.ewaste.ui.theme.PrimaryGreen
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.compose.runtime.collectAsState
+import com.example.ewaste.viewmodel.AuthViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

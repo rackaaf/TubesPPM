@@ -32,6 +32,7 @@ fun KategoriScreen(
 ) {
     val kategoriList by viewModel.kategoriList.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
+    val errorMessage by viewModel.errorMessage.collectAsState()
 
     // Load data saat screen pertama kali dibuka
     LaunchedEffect(Unit) {
@@ -74,6 +75,22 @@ fun KategoriScreen(
                 containerColor = PrimaryGreen
             )
         )
+
+        // Error message
+        errorMessage?.let { error ->
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                colors = CardDefaults.cardColors(containerColor = Color.Red.copy(alpha = 0.1f))
+            ) {
+                Text(
+                    text = "Error: $error",
+                    modifier = Modifier.padding(16.dp),
+                    color = Color.Red
+                )
+            }
+        }
 
         if (isLoading) {
             Box(
@@ -128,7 +145,7 @@ fun KategoriScreen(
                         kategori = kategori.namaKategori,
                         onClick = {
                             viewModel.loadJenis(kategori.id)
-                            navController.navigate("jenis")
+                            navController.navigate("jenis/${kategori.id}")
                         }
                     )
                 }

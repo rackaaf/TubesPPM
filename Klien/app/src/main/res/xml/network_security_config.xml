@@ -2,7 +2,7 @@
 <network-security-config>
     <domain-config cleartextTrafficPermitted="true">
         <!-- Alamat IP khusus untuk emulator -->
-        <domain includeSubdomains="true">192.168.100.159</domain>
+        <domain includeSubdomains="true">192.168.1.9</domain>
 
         <!-- IP lokal komputer Anda, jika diperlukan -->
         <domain includeSubdomains="true">192.168.172.186</domain>

@@ -5,6 +5,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import androidx.navigation.NavType
 import com.example.ewaste.ui.screen.*
 
 @Composable
@@ -25,6 +27,19 @@ fun EWasteApp() {
         composable("profile") { ProfileScreen(navController) }
         composable("change-password") { ChangePasswordScreen(navController) }
         composable("kategori") { KategoriScreen(navController) }
-        composable("jenis") { JenisScreen(navController) }
+
+        // Route untuk jenis sampah dengan parameter kategoriId
+        composable(
+            route = "jenis/{kategoriId}",
+            arguments = listOf(navArgument("kategoriId") { type = NavType.IntType })
+        ) { backStackEntry ->
+            val kategoriId = backStackEntry.arguments?.getInt("kategoriId") ?: 0
+            JenisScreen(navController, kategoriId)
+        }
+
+        // Route untuk semua jenis sampah (tanpa filter)
+        composable("jenis") {
+            JenisScreen(navController, null) // null = tampilkan semua jenis
+        }
     }
 }

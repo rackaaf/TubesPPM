@@ -2,9 +2,9 @@ package com.example.ewaste.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.ewaste.data.local.EWasteDatabase
-import com.example.ewaste.data.local.dao.JenisDao
+import com.example.ewaste.data.local.EwasteDatabase // Update import ini
 import com.example.ewaste.data.local.dao.KategoriDao
+import com.example.ewaste.data.local.dao.JenisDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,17 +18,23 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideDatabase(@ApplicationContext context: Context): EWasteDatabase {
+    fun provideEwasteDatabase(@ApplicationContext appContext: Context): EwasteDatabase {
         return Room.databaseBuilder(
-            context,
-            EWasteDatabase::class.java,
-            "ewaste.db"
-        ).fallbackToDestructiveMigration().build()
+            appContext,
+            EwasteDatabase::class.java,
+            "ewaste_database"
+        )
+            .fallbackToDestructiveMigration() // Penting: ini akan handle schema changes
+            .build()
     }
 
     @Provides
-    fun provideKategoriDao(db: EWasteDatabase): KategoriDao = db.kategoriDao()
+    fun provideKategoriDao(database: EwasteDatabase): KategoriDao {
+        return database.kategoriDao()
+    }
 
     @Provides
-    fun provideJenisDao(db: EWasteDatabase): JenisDao = db.jenisDao()
+    fun provideJenisDao(database: EwasteDatabase): JenisDao {
+        return database.jenisDao()
+    }
 }
