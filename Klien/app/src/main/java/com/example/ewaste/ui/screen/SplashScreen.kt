@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.ewaste.ui.theme.PrimaryGreen
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.ewaste.viewmodel.AuthViewModel
 import kotlinx.coroutines.delay
 
 @Composable

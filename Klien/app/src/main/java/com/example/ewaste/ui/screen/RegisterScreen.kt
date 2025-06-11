@@ -20,6 +20,7 @@ import androidx.navigation.NavController
 import androidx.hilt.navigation.compose.hiltViewModel
 import kotlinx.coroutines.delay
 import androidx.compose.foundation.shape.CircleShape
+import com.example.ewaste.viewmodel.AuthViewModel
 
 @Composable
 fun RegisterScreen(navController: NavController, viewModel: AuthViewModel = hiltViewModel()) {

@@ -6,5 +6,6 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "kategori")
 data class KategoriEntity(
     @PrimaryKey val id: Int,
-    val namaKategori: String
+    val namaKategori: String,
+    val deskripsi: String? = null // Tambahkan field deskripsi
 )

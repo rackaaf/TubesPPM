@@ -15,6 +15,7 @@ import com.example.ewaste.ui.theme.PrimaryGreen
 import com.example.ewaste.ui.theme.SecondaryGreen
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.compose.runtime.collectAsState
+import com.example.ewaste.viewmodel.AuthViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

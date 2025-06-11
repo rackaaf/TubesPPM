@@ -1,6 +1,6 @@
 package com.example.ewaste.di
 
-import android.util.Log
+import com.example.ewaste.BuildConfig
 import com.example.ewaste.data.remote.ApiService
 import dagger.Module
 import dagger.Provides
@@ -18,7 +18,7 @@ import javax.inject.Singleton
 object NetworkModule {
 
     // Ganti BASE_URL dengan IP khusus untuk emulator
-    private const val BASE_URL = "http://10.0.2.2:8000/api/"
+    private const val BASE_URL = "http://192.168.1.9/Rest-API/public/api/"
 
     @Provides
     @Singleton
@@ -46,13 +46,13 @@ object NetworkModule {
             // Custom debug interceptor
             builder.addInterceptor { chain ->
                 val request = chain.request()
-                Log.d("NetworkDebug", "🌐 Request URL: ${request.url}")
+                android.util.Log.d("NetworkDebug", "🌐 Request URL: ${request.url}")
                 try {
                     val response = chain.proceed(request)
-                    Log.d("NetworkDebug", "✅ Response: ${response.code}")
+                    android.util.Log.d("NetworkDebug", "✅ Response: ${response.code}")
                     response
                 } catch (e: Exception) {
-                    Log.e("NetworkDebug", "❌ Network Error: ${e.message}")
+                    android.util.Log.e("NetworkDebug", "❌ Network Error: ${e.message}")
                     throw e
                 }
             }
@@ -71,8 +71,4 @@ object NetworkModule {
             .build()
             .create(ApiService::class.java)
     }
-}
-
-class BuildConfig {
-
 }
